@@ -17,6 +17,9 @@ System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("http://www.leafground.com/pages/sorttable.html");
+		
+		System.out.println("Success");
+		
 		driver.close();
 		
 		
