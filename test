@@ -1,0 +1,12 @@
+here’s no master branch locally anymore, because it’s renamed to the main branch.
+
+To let others see the new main branch, you need to push it to the remote. This makes the renamed branch available on the remote.
+
+$ git push --set-upstream origin main
+Now we end up with the following state:
+
+git branch --all
+* main
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/main
+  remotes/origin/master
