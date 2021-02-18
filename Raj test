@@ -1,0 +1,14 @@
+A refspec tells git how to map references from a remote to the local repo.
+
+The value you listed was +refs/heads/*:refs/remotes/origin/* +refs/merge-requests/*/head:refs/remotes/origin/merge-requests/*; so let's break that down.
+
+You have two patterns with a space between them; this just means you're giving multiple rules. (The pro git book refers to this as two refspecs; which is probably technically more correct. However, you just about always have the ability to list multiple refspecs if you need to, so in day to day life it likely makes little difference.)
+
+The first pattern, then, is +refs/heads/*:refs/remotes/origin/* which has three parts:
+
+The + means to apply the rule without failure even if doing so would move a target ref in a non-fast-forward manner. I'll come back to that.
+The part before the : (but after the + if there is one) is the "source" pattern. That's refs/heads/*, meaning this rule applies to any remote reference under refs/heads (meaning, branches).
+The part after the : is the "destination" pattern. That's refs/remotes/origin/*.
+So if the origin has a branch master, represented as refs/heads/master, this will create a remote branch reference origin/master represented as refs/remotes/origin/master. And so on for any branch name (*).
+
+So back to that +... suppose the origin has
